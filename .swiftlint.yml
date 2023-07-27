@@ -1,0 +1,15 @@
+
+disabled_rules:
+- trailing_whitespace
+- xctfail_message
+- function_parameter_count
+- legacy_constructor
+- force_cast
+- trailing_comma
+- force_try
+- identifier_name
+- line_length
+
+excluded:
+- EarTraining/Extension/Combine/Combine+UIControl.swift
+- EarTraining/Resource/SceneDelegate.swift

@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  EarTraining
+
+  Created by 김민종 on 2023/07/12.
+  
+*/
+
+// MARK: - 탭바
+"Training" = "Training";
+"Setting" = "Setting";
+
+// MARK: - 기본문구
+"Next" = "Next";
+
+// MARK: - 튜토리얼
+"Tutorial_Title1" = "Tutorial_Title1";
+
+// MARK: - 로그인
+"Login_Title1" = "Login_Title1";
+
+// MARK: - 설문조사
+"Survey_Title1" = "Survey_Title1";
