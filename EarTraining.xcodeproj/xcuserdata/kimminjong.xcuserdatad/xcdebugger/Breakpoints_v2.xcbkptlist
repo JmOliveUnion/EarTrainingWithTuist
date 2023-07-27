@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A62E2818-2B39-4A0B-90B2-2EC87FA77D3E"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63CDB76C-995B-49AC-8E16-52578F3AE4E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EarTraining/Presentation/Components/OliveUnderLineButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "UnderLineButton"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "63CDB76C-995B-49AC-8E16-52578F3AE4E8 - 990b21d1f32d251c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EarTraining.UnderLineButton.__allocating_init(title: Swift.String) -&gt; EarTraining.UnderLineButton"
+                  moduleName = "EarTraining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimminjong/Desktop/EarTraining/EarTraining/Presentation/Components/OliveUnderLineButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "63CDB76C-995B-49AC-8E16-52578F3AE4E8 - 6f9572330d59d951"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EarTraining.UnderLineButton.init(title: Swift.String) -&gt; EarTraining.UnderLineButton"
+                  moduleName = "EarTraining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimminjong/Desktop/EarTraining/EarTraining/Presentation/Components/OliveUnderLineButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "878F5F45-DF51-4EEE-A1B8-7E75A64BB0D1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EarTraining/Presentation/Components/OliveUnderLineButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "878F5F45-DF51-4EEE-A1B8-7E75A64BB0D1 - 4d5ce70cc3e0dceb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EarTraining.UnderLineButton.__allocating_init(frame: __C.CGRect) -&gt; EarTraining.UnderLineButton"
+                  moduleName = "EarTraining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimminjong/Desktop/EarTraining/EarTraining/Presentation/Components/OliveUnderLineButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "878F5F45-DF51-4EEE-A1B8-7E75A64BB0D1 - 13b652a81a44ab8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EarTraining.UnderLineButton.init(frame: __C.CGRect) -&gt; EarTraining.UnderLineButton"
+                  moduleName = "EarTraining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimminjong/Desktop/EarTraining/EarTraining/Presentation/Components/OliveUnderLineButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "878F5F45-DF51-4EEE-A1B8-7E75A64BB0D1 - d0bd60145778e8a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EarTraining.UnderLineButton.__deallocating_deinit"
+                  moduleName = "EarTraining"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimminjong/Desktop/EarTraining/EarTraining/Presentation/Components/OliveUnderLineButton.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
