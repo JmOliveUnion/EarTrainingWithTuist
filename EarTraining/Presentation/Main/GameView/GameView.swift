@@ -44,7 +44,7 @@ class GameView: UIView {
     let playButton: UIButton = {
         let button = UIButton()
        
-        button.setImage(UIImage(named: "HomeTab"), for: .normal)
+        button.setImage(UIImage(named: Image.homeTabSelected.rawValue), for: .normal)
         button.setTitle("play_title".localized, for: .normal)
         button.setTitleColor(.l_keyBlue, for: .normal)
         

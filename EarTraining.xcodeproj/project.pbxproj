@@ -10,6 +10,7 @@
 		580B86392A64C9170078D0CE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 580B86382A64C9170078D0CE /* .swiftlint.yml */; };
 		5822047C2A70AF5A00C49F06 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822047B2A70AF5A00C49F06 /* MainView.swift */; };
 		5822047F2A70F25B00C49F06 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822047E2A70F25B00C49F06 /* GameView.swift */; };
+		582D61342A734747009335EC /* EarTrainingStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D61332A734747009335EC /* EarTrainingStartVC.swift */; };
 		5836EE482A6F69F3003EE040 /* SurveyVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836EE472A6F69F3003EE040 /* SurveyVC3.swift */; };
 		5836EE4A2A6F6CDC003EE040 /* SurveyVC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836EE492A6F6CDC003EE040 /* SurveyVC4.swift */; };
 		5836EE4C2A6F6D94003EE040 /* SurveyVC5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836EE4B2A6F6D94003EE040 /* SurveyVC5.swift */; };
@@ -78,6 +79,7 @@
 		580B86382A64C9170078D0CE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5822047B2A70AF5A00C49F06 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5822047E2A70F25B00C49F06 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		582D61332A734747009335EC /* EarTrainingStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarTrainingStartVC.swift; sourceTree = "<group>"; };
 		5836EE472A6F69F3003EE040 /* SurveyVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyVC3.swift; sourceTree = "<group>"; };
 		5836EE492A6F6CDC003EE040 /* SurveyVC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyVC4.swift; sourceTree = "<group>"; };
 		5836EE4B2A6F6D94003EE040 /* SurveyVC5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyVC5.swift; sourceTree = "<group>"; };
@@ -167,6 +169,14 @@
 			path = GameView;
 			sourceTree = "<group>";
 		};
+		582D61322A734710009335EC /* EarTraining */ = {
+			isa = PBXGroup;
+			children = (
+				582D61332A734747009335EC /* EarTrainingStartVC.swift */,
+			);
+			path = EarTraining;
+			sourceTree = "<group>";
+		};
 		5836EE532A6FA6D8003EE040 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +248,7 @@
 				583D6FCF2A6E646000F0B662 /* Survey */,
 				58F8D0A72A5E6D1B0034DDF9 /* Main */,
 				58F8D0AD2A5E72650034DDF9 /* Setting */,
+				582D61322A734710009335EC /* EarTraining */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -609,6 +620,7 @@
 				588469662A5E688E008EC91C /* MainTabBarController.swift in Sources */,
 				588469502A5E65D7008EC91C /* SceneDelegate.swift in Sources */,
 				588E8D522A60E711005CD208 /* TutorialVC3.swift in Sources */,
+				582D61342A734747009335EC /* EarTrainingStartVC.swift in Sources */,
 				58E6AC122A72406A00EAADFA /* CreateUserAdditionalVC.swift in Sources */,
 				58E6AC022A723D3600EAADFA /* NumberSequenceView.swift in Sources */,
 				58E6ABFA2A723C0600EAADFA /* CreateUserIDView.swift in Sources */,

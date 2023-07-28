@@ -121,7 +121,7 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
-            cell.configure(profileImage: "HomeTab", name: "Minjong", email: "dev@oliveunion.com")
+            cell.configure(profileImage: Image.homeTabSelected.rawValue, name: "Minjong", email: "dev@oliveunion.com")
             
             return cell
         case 1:

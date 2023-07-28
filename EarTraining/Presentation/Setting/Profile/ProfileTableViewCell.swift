@@ -34,7 +34,7 @@ class ProfileTableViewCell: UITableViewCell {
         profileTitleLabel.text = "Profile_Title".localized
         profileTitleLabel.font = .Roboto_B32
         
-        profileEditImageView.image = UIImage(named: "HomeTab")
+        profileEditImageView.image = UIImage(named: Image.homeTabSelected.rawValue)
         
         nameLabel.font = .Roboto_B18
         emailLabel.font = .Roboto_R16

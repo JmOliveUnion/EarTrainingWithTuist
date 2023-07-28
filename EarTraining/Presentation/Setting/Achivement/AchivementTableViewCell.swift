@@ -28,7 +28,7 @@ class AchivementTableViewCell: UITableViewCell {
         titleLabel.text = "Achivement_Title".localized
         titleLabel.font = .Roboto_B18
         
-        calenderImage.image = UIImage(named: "HomeTab")
+        calenderImage.image = UIImage(named: Image.homeTabSelected.rawValue)
     
     }
 

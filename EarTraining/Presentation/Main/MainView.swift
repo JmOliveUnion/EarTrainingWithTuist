@@ -14,10 +14,10 @@ final class MainView: UIView {
     
     // MARK: - Properties
     
-    let dailyGameView = GameView(day: .mon, image: "HomeTab", score: 390)
-    let firstGame = GameView(day: .mon, image: "HomeTab", score: 200)
-    let secondGame = GameView(day: .mon, image: "HomeTab", score: 300)
-    let thirdGame = GameView(day: .mon, image: "HomeTab", score: 100)
+    let dailyGameView = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 390)
+    let firstGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 200)
+    let secondGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 300)
+    let thirdGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 100)
 
     let scrollView: UIScrollView = {
       let scrollView = UIScrollView()
@@ -97,7 +97,7 @@ final class MainView: UIView {
         topBlueView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.7)
-            $0.top.equalTo(contentView.snp.top).offset(-70)
+            $0.top.equalTo(contentView.snp.top).offset(-100)
         }
         
         topBlueView.addSubview(titleLabel)

@@ -26,6 +26,7 @@ class MainVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        hideNavigationBarLine()
         
     }
     
@@ -41,8 +42,14 @@ class MainVC: BaseViewController {
             .store(in: &cancellableBag)
         
         mainView.firstGame.playButton.tapPublisher
-            .sink { _ in
+            .sink {[weak self] _ in
                 print("Tapped")
+                let vc = EarTrainingStartVC()
+//                let nav = UINavigationController(rootViewController: vc)
+                vc.modalPresentationStyle = .fullScreen
+//                self?.present(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
+                
             }
             .store(in: &cancellableBag)
         

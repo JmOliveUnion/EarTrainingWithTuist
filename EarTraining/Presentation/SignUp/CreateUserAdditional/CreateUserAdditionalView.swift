@@ -31,7 +31,6 @@ class CreateUserAdditionalView: UIView {
         return view
        }()
     
-    
     private let headerView = NumberSequenceView(order: .three)
     
     private let titleLabel: UILabel = {

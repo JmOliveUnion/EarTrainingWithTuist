@@ -18,12 +18,14 @@ class SplashVC: BaseViewController {
         goToMain()
     }
     private func goToMain() {
-//        let vc = MainTabBarController.instance
-//        changeRootViewController(to: vc)
-
-        let vc = TutorialVC1()
+        let vc = MainTabBarController.instance
         let nav = UINavigationController(rootViewController: vc)
+
         changeRootViewController(to: nav)
-        
+
+//        let vc = TutorialVC1()
+//        let nav = UINavigationController(rootViewController: vc)
+//        changeRootViewController(to: nav)
+//
     }
 }
