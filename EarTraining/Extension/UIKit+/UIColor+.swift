@@ -34,8 +34,12 @@ extension UIColor {
     static let l_gray200 = UIColor(r: 240, g: 240, b: 240)
     static let l_gray300 = UIColor(r: 243, g: 243, b: 243)
     static let l_gray400 = UIColor(r: 120, g: 120, b: 120)
+    static let l_gray500 = UIColor(r: 242, g: 242, b: 242)
+    static let l_gray600 = UIColor(r: 139, g: 139, b: 139)
 
     static let l_keyBlue = UIColor(r: 0, g: 102, b: 255)
+    static let l_keyBlue200 = UIColor(r: 134, g: 182, b: 255)
+
     static let l_keyBlue_40 = UIColor(r: 174, g: 188, b: 255)
     static let l_keyYellow = UIColor(r: 255, g: 179, b: 0)
     static let l_keyYellow_40 = UIColor(r: 255, g: 227, b: 160)

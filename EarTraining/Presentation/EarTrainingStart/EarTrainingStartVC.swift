@@ -165,7 +165,14 @@ class EarTrainingStartVC: BaseViewController {
     // MARK: - Bind
     
     private func bind() {
-        
+        nextButton.tapPublisher
+            .sink {[weak self] _ in
+                print("")
+                let vc = AuditoryStroopVC()
+                vc.modalPresentationStyle = .fullScreen
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            .store(in: &cancellableBag)
     }
 
 }

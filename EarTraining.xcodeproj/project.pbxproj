@@ -35,6 +35,16 @@
 		58A609982A6FC626004B3844 /* AdvertisingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58A609962A6FC626004B3844 /* AdvertisingTableViewCell.xib */; };
 		58A6099C2A6FC80F004B3844 /* AchivementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A6099A2A6FC80F004B3844 /* AchivementTableViewCell.swift */; };
 		58A6099D2A6FC80F004B3844 /* AchivementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58A6099B2A6FC80F004B3844 /* AchivementTableViewCell.xib */; };
+		58CAF8C32A78AEC50009E3C5 /* AuditoryStroopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAF8C22A78AEC50009E3C5 /* AuditoryStroopVC.swift */; };
+		58CAF8C52A78AF260009E3C5 /* AuditoryStroopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAF8C42A78AF260009E3C5 /* AuditoryStroopViewModel.swift */; };
+		58CAF8CB2A78F80D0009E3C5 /* ASPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAF8CA2A78F80D0009E3C5 /* ASPair.swift */; };
+		58CAF8CD2A78F83C0009E3C5 /* ASColorWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAF8CC2A78F83C0009E3C5 /* ASColorWord.swift */; };
+		58CAF8D12A78FC4F0009E3C5 /* ASChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAF8D02A78FC4F0009E3C5 /* ASChoiceButton.swift */; };
+		58CAF8D32A79F44E0009E3C5 /* asPairData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAF8D22A79F44E0009E3C5 /* asPairData.swift */; };
+		58CAF8DA2A7A19DB0009E3C5 /* en_green.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58CAF8D62A7A19DB0009E3C5 /* en_green.mp3 */; };
+		58CAF8DB2A7A19DB0009E3C5 /* en_yellow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58CAF8D72A7A19DB0009E3C5 /* en_yellow.mp3 */; };
+		58CAF8DC2A7A19DB0009E3C5 /* en_red.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58CAF8D82A7A19DB0009E3C5 /* en_red.mp3 */; };
+		58CAF8DD2A7A19DB0009E3C5 /* en_blue.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58CAF8D92A7A19DB0009E3C5 /* en_blue.mp3 */; };
 		58E6ABFA2A723C0600EAADFA /* CreateUserIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6ABF92A723C0600EAADFA /* CreateUserIDView.swift */; };
 		58E6ABFC2A723C2C00EAADFA /* CreateUserIDVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6ABFB2A723C2C00EAADFA /* CreateUserIDVC.swift */; };
 		58E6ABFE2A723CBB00EAADFA /* OliveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6ABFD2A723CBB00EAADFA /* OliveTextField.swift */; };
@@ -106,6 +116,16 @@
 		58A609962A6FC626004B3844 /* AdvertisingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertisingTableViewCell.xib; sourceTree = "<group>"; };
 		58A6099A2A6FC80F004B3844 /* AchivementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivementTableViewCell.swift; sourceTree = "<group>"; };
 		58A6099B2A6FC80F004B3844 /* AchivementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchivementTableViewCell.xib; sourceTree = "<group>"; };
+		58CAF8C22A78AEC50009E3C5 /* AuditoryStroopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditoryStroopVC.swift; sourceTree = "<group>"; };
+		58CAF8C42A78AF260009E3C5 /* AuditoryStroopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditoryStroopViewModel.swift; sourceTree = "<group>"; };
+		58CAF8CA2A78F80D0009E3C5 /* ASPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPair.swift; sourceTree = "<group>"; };
+		58CAF8CC2A78F83C0009E3C5 /* ASColorWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASColorWord.swift; sourceTree = "<group>"; };
+		58CAF8D02A78FC4F0009E3C5 /* ASChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASChoiceButton.swift; sourceTree = "<group>"; };
+		58CAF8D22A79F44E0009E3C5 /* asPairData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asPairData.swift; sourceTree = "<group>"; };
+		58CAF8D62A7A19DB0009E3C5 /* en_green.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_green.mp3; sourceTree = "<group>"; };
+		58CAF8D72A7A19DB0009E3C5 /* en_yellow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_yellow.mp3; sourceTree = "<group>"; };
+		58CAF8D82A7A19DB0009E3C5 /* en_red.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_red.mp3; sourceTree = "<group>"; };
+		58CAF8D92A7A19DB0009E3C5 /* en_blue.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_blue.mp3; sourceTree = "<group>"; };
 		58E6ABF92A723C0600EAADFA /* CreateUserIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserIDView.swift; sourceTree = "<group>"; };
 		58E6ABFB2A723C2C00EAADFA /* CreateUserIDVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserIDVC.swift; sourceTree = "<group>"; };
 		58E6ABFD2A723CBB00EAADFA /* OliveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliveTextField.swift; sourceTree = "<group>"; };
@@ -169,12 +189,12 @@
 			path = GameView;
 			sourceTree = "<group>";
 		};
-		582D61322A734710009335EC /* EarTraining */ = {
+		582D61322A734710009335EC /* EarTrainingStart */ = {
 			isa = PBXGroup;
 			children = (
 				582D61332A734747009335EC /* EarTrainingStartVC.swift */,
 			);
-			path = EarTraining;
+			path = EarTrainingStart;
 			sourceTree = "<group>";
 		};
 		5836EE532A6FA6D8003EE040 /* Profile */ = {
@@ -222,6 +242,7 @@
 				58F8D0B92A5E7CD30034DDF9 /* Constant */,
 				58F8D0A82A5E6EA20034DDF9 /* Utils */,
 				5884696E2A5E6BF2008EC91C /* Presentation */,
+				58CAF8D42A7A19C90009E3C5 /* Sound */,
 				588469612A5E662C008EC91C /* Resource */,
 			);
 			path = EarTraining;
@@ -248,7 +269,8 @@
 				583D6FCF2A6E646000F0B662 /* Survey */,
 				58F8D0A72A5E6D1B0034DDF9 /* Main */,
 				58F8D0AD2A5E72650034DDF9 /* Setting */,
-				582D61322A734710009335EC /* EarTraining */,
+				582D61322A734710009335EC /* EarTrainingStart */,
+				58CAF8C12A78AE5F0009E3C5 /* AuditoryStroop */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -286,6 +308,54 @@
 				58A6099B2A6FC80F004B3844 /* AchivementTableViewCell.xib */,
 			);
 			path = Achivement;
+			sourceTree = "<group>";
+		};
+		58CAF8C12A78AE5F0009E3C5 /* AuditoryStroop */ = {
+			isa = PBXGroup;
+			children = (
+				58CAF8C92A78F7FE0009E3C5 /* Model */,
+				58CAF8C62A78D4360009E3C5 /* Components */,
+				58CAF8C22A78AEC50009E3C5 /* AuditoryStroopVC.swift */,
+				58CAF8C42A78AF260009E3C5 /* AuditoryStroopViewModel.swift */,
+			);
+			path = AuditoryStroop;
+			sourceTree = "<group>";
+		};
+		58CAF8C62A78D4360009E3C5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				58CAF8D02A78FC4F0009E3C5 /* ASChoiceButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		58CAF8C92A78F7FE0009E3C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58CAF8CA2A78F80D0009E3C5 /* ASPair.swift */,
+				58CAF8CC2A78F83C0009E3C5 /* ASColorWord.swift */,
+				58CAF8D22A79F44E0009E3C5 /* asPairData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		58CAF8D42A7A19C90009E3C5 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				58CAF8D52A7A19DB0009E3C5 /* EN_AuditoryStroop */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		58CAF8D52A7A19DB0009E3C5 /* EN_AuditoryStroop */ = {
+			isa = PBXGroup;
+			children = (
+				58CAF8D62A7A19DB0009E3C5 /* en_green.mp3 */,
+				58CAF8D72A7A19DB0009E3C5 /* en_yellow.mp3 */,
+				58CAF8D82A7A19DB0009E3C5 /* en_red.mp3 */,
+				58CAF8D92A7A19DB0009E3C5 /* en_blue.mp3 */,
+			);
+			path = EN_AuditoryStroop;
 			sourceTree = "<group>";
 		};
 		58E6ABF82A723A7100EAADFA /* SignUp */ = {
@@ -544,11 +614,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				588469572A5E65D8008EC91C /* Assets.xcassets in Resources */,
+				58CAF8DD2A7A19DB0009E3C5 /* en_blue.mp3 in Resources */,
+				58CAF8DB2A7A19DB0009E3C5 /* en_yellow.mp3 in Resources */,
 				58A6099D2A6FC80F004B3844 /* AchivementTableViewCell.xib in Resources */,
 				58F8D0B22A5E7BA10034DDF9 /* Localizable.strings in Resources */,
 				5884696D2A5E6B90008EC91C /* MainTabBar.storyboard in Resources */,
 				580B86392A64C9170078D0CE /* .swiftlint.yml in Resources */,
 				58A609982A6FC626004B3844 /* AdvertisingTableViewCell.xib in Resources */,
+				58CAF8DC2A7A19DB0009E3C5 /* en_red.mp3 in Resources */,
+				58CAF8DA2A7A19DB0009E3C5 /* en_green.mp3 in Resources */,
 				58F8D0AF2A5E726F0034DDF9 /* Setting.storyboard in Resources */,
 				5836EE522A6FA6D5003EE040 /* ProfileTableViewCell.xib in Resources */,
 				588469552A5E65D7008EC91C /* Main.storyboard in Resources */,
@@ -587,6 +661,7 @@
 				58E6AC062A723E4D00EAADFA /* CreateUserNameVC.swift in Sources */,
 				5836EE4C2A6F6D94003EE040 /* SurveyVC5.swift in Sources */,
 				5822047C2A70AF5A00C49F06 /* MainView.swift in Sources */,
+				58CAF8CD2A78F83C0009E3C5 /* ASColorWord.swift in Sources */,
 				58F8D0C22A5E81CE0034DDF9 /* UIFont+.swift in Sources */,
 				5884696B2A5E69DA008EC91C /* SplashVC.swift in Sources */,
 				58E6ABFC2A723C2C00EAADFA /* CreateUserIDVC.swift in Sources */,
@@ -614,6 +689,7 @@
 				58E6AC0A2A723F0600EAADFA /* UIResponder+.swift in Sources */,
 				5884694E2A5E65D7008EC91C /* AppDelegate.swift in Sources */,
 				58F8D0D12A5E85360034DDF9 /* Combine+UITextField.swift in Sources */,
+				58CAF8C32A78AEC50009E3C5 /* AuditoryStroopVC.swift in Sources */,
 				58F8D0C62A5E836C0034DDF9 /* UIButton+.swift in Sources */,
 				58F8D0CD2A5E84F60034DDF9 /* Combine+UIControl.swift in Sources */,
 				58A609972A6FC626004B3844 /* AdvertisingTableViewCell.swift in Sources */,
@@ -624,12 +700,15 @@
 				58E6AC122A72406A00EAADFA /* CreateUserAdditionalVC.swift in Sources */,
 				58E6AC022A723D3600EAADFA /* NumberSequenceView.swift in Sources */,
 				58E6ABFA2A723C0600EAADFA /* CreateUserIDView.swift in Sources */,
+				58CAF8C52A78AF260009E3C5 /* AuditoryStroopViewModel.swift in Sources */,
 				58A6099C2A6FC80F004B3844 /* AchivementTableViewCell.swift in Sources */,
 				58F8D0D42A5E85F90034DDF9 /* FirebaseAnalytics.swift in Sources */,
 				58E9A09E2A5F9CFC001677BD /* OliveUnderLineButton.swift in Sources */,
+				58CAF8D12A78FC4F0009E3C5 /* ASChoiceButton.swift in Sources */,
 				58F8D0DA2A5F99F60034DDF9 /* HapticManager.swift in Sources */,
 				588E8D592A60EC46005CD208 /* LoginViewModel.swift in Sources */,
 				583D6FD12A6E64B100F0B662 /* SurveyVC1.swift in Sources */,
+				58CAF8D32A79F44E0009E3C5 /* asPairData.swift in Sources */,
 				588E8D542A60E742005CD208 /* TutorialVC4.swift in Sources */,
 				58F8D0AA2A5E6EB80034DDF9 /* BaseViewController.swift in Sources */,
 				58F8D0C42A5E831D0034DDF9 /* String+.swift in Sources */,
@@ -637,6 +716,7 @@
 				58F8D0CA2A5E849B0034DDF9 /* UIColor+.swift in Sources */,
 				588E8D502A60E1EC005CD208 /* TutorialVC2.swift in Sources */,
 				58F8D0DD2A5F9AA70034DDF9 /* OliveButton.swift in Sources */,
+				58CAF8CB2A78F80D0009E3C5 /* ASPair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

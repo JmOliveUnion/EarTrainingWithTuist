@@ -20,6 +20,7 @@ extension UIFont {
     static let Roboto_B14 = oliveFont(type: "Bold", size: 14)
     static let Roboto_B12 = oliveFont(type: "Bold", size: 12)
     
+    static let Roboto_R48 = oliveFont(type: "Regular", size: 48)
     static let Roboto_R32 = oliveFont(type: "Regular", size: 32)
     static let Roboto_R30 = oliveFont(type: "Regular", size: 30)
     static let Roboto_R28 = oliveFont(type: "Regular", size: 28)
