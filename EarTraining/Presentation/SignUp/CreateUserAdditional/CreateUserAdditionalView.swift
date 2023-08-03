@@ -134,7 +134,6 @@ class CreateUserAdditionalView: UIView {
         return stack
     }()
 
-    
     let doneButton: OliveButton = {
         let button = OliveButton(title: "signup_text_skip".localized)
         button.setTitle("signup_text_create_account_done_button".localized, for: .selected)
@@ -234,8 +233,7 @@ class CreateUserAdditionalView: UIView {
 //        }
     }
     
-    //MARK: - DatePicker
-    
+    // MARK: - DatePicker
     func formatDate(date: Date) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.timeZone = TimeZone.current

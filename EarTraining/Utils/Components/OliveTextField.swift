@@ -296,4 +296,3 @@ final class OliveTextField: UIView {
         timer = nil
     }
 }
-

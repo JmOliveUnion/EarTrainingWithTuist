@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension UIResponder {
     
     private struct Static {

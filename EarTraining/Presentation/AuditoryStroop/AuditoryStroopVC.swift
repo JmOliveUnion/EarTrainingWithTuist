@@ -171,13 +171,15 @@ final class AuditoryStroopVC: BaseViewController {
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.snp.bottom)
         }
         
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints {
             $0.width.equalToSuperview()
-            $0.centerX.top.bottom.equalToSuperview()
+            $0.centerX.top.equalToSuperview()
+            $0.bottom.equalTo(view.snp.bottom)
         }
         
         contentView.addSubview(questionProgressBar)
@@ -217,8 +219,8 @@ final class AuditoryStroopVC: BaseViewController {
         choiceStack.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.top.equalTo(typeBlock.snp.bottom).offset(30)
-            $0.bottom.equalToSuperview().offset(-10)
-            $0.height.equalToSuperview().multipliedBy(0.55)
+            $0.bottom.equalToSuperview().offset(-100)
+            $0.height.equalToSuperview().multipliedBy(0.5)
         }
         
         contentView.addSubview(correctView)
@@ -234,13 +236,12 @@ final class AuditoryStroopVC: BaseViewController {
         contentView.addSubview(threeCountdownView)
         threeCountdownView.snp.makeConstraints {
             $0.top.equalTo(view.snp.top)
-            $0.bottom.equalTo(view.snp.bottom)
+            $0.bottom.equalTo(contentView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
         }
         
         contentView.addSubview(finishedView)
         finishedView.snp.makeConstraints {
-            
             $0.edges.equalToSuperview()
         }
     }
@@ -321,7 +322,6 @@ final class AuditoryStroopVC: BaseViewController {
                     self?.countdownLabel.isHidden = isOn
                     self?.coundownSoundImage.isHidden = !isOn
                     self?.progressView.progressTintColor = .l_gray500
-
                     [self?.firstChoice, self?.secondChoice, self?.thirdChoice, self?.fourthChoice].forEach {
                         $0?.setTitle("", for: .normal)
                         $0?.isEnabled = false
@@ -331,7 +331,6 @@ final class AuditoryStroopVC: BaseViewController {
                     self?.countdownLabel.isHidden = isOn
                     self?.coundownSoundImage.isHidden = !isOn
                     self?.progressView.progressTintColor = .l_keyBlue200
-
                     [self?.firstChoice, self?.secondChoice, self?.thirdChoice, self?.fourthChoice].enumerated().forEach { (index, button) in
                         button?.isEnabled = true
                         button?.setTitle(self?.choiceButtonDescription[index].word.rawValue, for: .normal)
@@ -376,9 +375,11 @@ final class AuditoryStroopVC: BaseViewController {
         vm.$isFinished
             .sink {[weak self] isOn in
                 if isOn {
-                    self?.finishedView.isHidden = false
+                    self?.navigationController?.navigationBar.isHidden = isOn
+                    self?.finishedView.isHidden = !isOn
                 } else {
-                    self?.finishedView.isHidden = true
+                    self?.navigationController?.navigationBar.isHidden = isOn
+                    self?.finishedView.isHidden = !isOn
                 }
             }
             .store(in: &cancellableBag)

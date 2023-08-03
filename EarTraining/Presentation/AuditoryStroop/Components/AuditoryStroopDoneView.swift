@@ -90,7 +90,7 @@ final class AuditoryStroopDoneView: UIView {
         
         image.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview().offset(-20)
+            $0.centerY.equalToSuperview().offset(-30)
         }
         
         self.addSubview(titleLabel)
@@ -114,7 +114,7 @@ final class AuditoryStroopDoneView: UIView {
         self.addSubview(buttonStackView)
         buttonStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.bottom.equalToSuperview().offset(-50)
+            $0.bottom.equalToSuperview().offset(-20)
             $0.height.equalTo(60)
         }
     }

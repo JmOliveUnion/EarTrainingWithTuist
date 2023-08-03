@@ -72,7 +72,7 @@ final class TermsConditionAgreementVC: BaseViewController {
             .store(in: &cancellableBag)
         
         mainView.marketingButton.tapPublisher
-            .sink { [weak self] _ in
+            .sink { _ in
 //                let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //                let nextViewController = storyboard.instantiateViewController(withIdentifier: "viewterms") as! ViewTermsVC
 //                nextViewController.modalPresentationStyle = .overCurrentContext
@@ -82,20 +82,20 @@ final class TermsConditionAgreementVC: BaseViewController {
             .store(in: &cancellableBag)
         
         mainView.topCheckButton.tapPublisher
-            .sink { [weak self] _ in
+            .sink { _ in
                 mainView.updateTopContent()
             }
             .store(in: &cancellableBag)
         
         mainView.middleCheckButton.tapPublisher
-            .sink { [weak self] _ in
+            .sink { _ in
                 let newState = !mainView.middleCheckButton.isSelected
                 mainView.updateMiddleContent(to: newState)
             }
             .store(in: &cancellableBag)
         
         mainView.bottomCheckButton.tapPublisher
-            .sink { [weak self] _ in
+            .sink { _ in
                 let newState = !mainView.bottomCheckButton.isSelected
                 mainView.updateBottomContent(to: newState)
             }

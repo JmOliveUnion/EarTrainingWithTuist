@@ -12,7 +12,7 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func substrFrom(from : Int) -> String {
+    func substrFrom(from: Int) -> String {
         let fromIndex = self.index(self.startIndex, offsetBy: from)
         return String(self[fromIndex...])
     }
