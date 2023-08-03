@@ -19,76 +19,68 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         let colorWord: ASColorWord
         let type: QuestionType
     }
+    
     @Published var qIndex: Int = 0
     @Published var totalScore: Int = 0
     @Published var taskCountdown: Double = 0.0
     @Published var isShowingThreeCountdown: Bool = true
-
     @Published var secondsRemaining: Double = 10.0
     @Published var questionType: String = ""
     @Published var isPlayingAudio: Bool = true
     @Published var isCorrect: Bool = false
     @Published var isShowingResult: Bool = false
     @Published var isFinished: Bool = false
-    
     @Published var threeCountdownString: String = ""
     @Published var choices: [ASPair] = [
         ASPair(word: .red, color: .red),
         ASPair(word: .green, color: .green),
         ASPair(word: .blue, color: .blue),
         ASPair(word: .yellow, color: .yellow)]
+    
     private var threeCountdownTimer: Timer?
     private var taskCountdownTimer: Timer?
     private var resultTimer: Timer?
     private var taskStartTime: Date?
     private var taskEndTime: Date?
     private var trialStartTime: Date?
-
     private var trialEndTime: Date?
 
-    let numOfQuestions: Int = 10
-    
-    private let taskCountdownTimeoutSec: Double = 10  // Countdown: 10 Seconds
-
-    private let resultViewTimeoutSec: Double = 2  // Result View: 2 Seconds
-
+//    let numOfQuestions: Int = 10
     private var threeCountdown: Int = 3
     private var extractedQuestions: [Question] = []
     private var audioPlayer: AVAudioPlayer?
+    private var auditoryStroopBestScore: Int = 0
     
-    var auditoryStroopBestScore: Int = 0
-    
+    // MARK: - Input from AuditoryStroopVC
     func tapButton(_ asPair: ASPair) {
         taskCountdownTimer?.invalidate()
         taskCountdownTimer = nil
         checkAnswer(userAnswer: asPair)
-
     }
-    
-    // MARK: - Make Questions
-    
+    // 메소드 1번
     func initiateTask() {
         taskStartTime = Date()
-        
+
         extractedQuestions = pickAndShuffleQuestions()
         choices = allocateChoices(question: extractedQuestions[qIndex])
         startThreeCountdown()
     }
     
-    func pickAndShuffleQuestions() -> [Question] {
+    // MARK: - Make Questions
+    private func pickAndShuffleQuestions() -> [Question] {
         var questions: [Question] = []
         
-        while questions.count < numOfQuestions {
+        while questions.count < 10 {
             let colorWord = [ASColorWord.red, ASColorWord.blue, ASColorWord.green, ASColorWord.yellow].randomElement()!
             let type = QuestionType.allCases.randomElement()!
             let question = Question(colorWord: colorWord, type: type)
             questions.append(question)
         }
-        
         return questions.shuffled()
     }
     
-    func allocateChoices(question: Question) -> [ASPair] {
+    // choice변수에 문제 할당을 위한 메소드
+    private func allocateChoices(question: Question) -> [ASPair] {
         var filteredChoices: [ASPair] = []
         
         let data = asPairData.shuffled()
@@ -102,7 +94,6 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
                         return element.color == datum.color
                     } else {
                         return element.word == datum.word
-                        
                     }
                 }) == false {
                     filteredChoices.append(datum)
@@ -113,12 +104,14 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         return filteredChoices
     }
     
-    func startThreeCountdown() {
+    // MARK: - CountDown Model
+    // 게임시작 전 삡 소리와 카운트다운 3,2,1 : 메소드 2번
+    private func startThreeCountdown() {
         isShowingThreeCountdown = true
         threeCountdownString = String(describing: self.threeCountdown)
         playAudioForThreeCountdown()
         
-        threeCountdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] innerTimer in
+        threeCountdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             
             Task { await MainActor.run {
@@ -140,26 +133,16 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         }
     }
     
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        print("finished")
-        if flag, !isShowingThreeCountdown {
-            Task { await MainActor.run { [weak self] in
-                self?.isPlayingAudio = false
-//                print("audioPlayerDidFinishPlaying is Calling")
-                self?.startTaskCountdown()
-            }}
-        }
-    }
-    
-    func startTaskCountdown() {
+    // MARK: - Audio Play 이후 문제 시작
+
+    private func startTaskCountdown() {
         trialStartTime = Date()
 
-        taskCountdownTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] innerTimer in
+        taskCountdownTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-//            print("taskCoutdown == \(self.taskCountdown)")
 
             Task { await MainActor.run {
-                if self.taskCountdown < (self.taskCountdownTimeoutSec - 0.1) {
+                if self.taskCountdown < 9.9 {
                     self.taskCountdown += 0.01
                     
                 } else {
@@ -171,7 +154,7 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         }
     }
     
-    func checkAnswer(userAnswer: ASPair) {
+    private func checkAnswer(userAnswer: ASPair) {
         trialEndTime = Date()
         
         if let trialStartTime = trialStartTime, let trialEndTime = trialEndTime {
@@ -192,17 +175,14 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
             isShowingResult = true
             
             if isCorrect {
-                // AudioServicesPlaySystemSound(1016)  // tweet
                 HapticManager.instace.impact(type: .medium)
                 print("맞음")
             } else {
-                // AudioServicesPlaySystemSound(1106)  // Beep Beep
                 HapticManager.instace.impact(type: .soft)
                 print("틀림")
-
             }
             
-            resultTimer = Timer.scheduledTimer(withTimeInterval: resultViewTimeoutSec, repeats: false) { [weak self] _ in
+            resultTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] _ in
                 guard let self = self else { return }
                 
                 Task { await MainActor.run {
@@ -217,46 +197,7 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         }
     }
     
-    func goToNextTrialOrEndTrial() {
-        // Reset variables
-        taskCountdown = 0
-        
-        if qIndex < extractedQuestions.count - 1 {
-            // Next Trial
-            qIndex += 1
-            
-            choices = allocateChoices(question: extractedQuestions[qIndex])
-            setTypeAndSpeakWord()
-            
-        } else {
-            // End Trial
-            stopTask()
-            
-            taskEndTime = Date()
-//            if let taskStartTime = taskStartTime, let taskEndTime = taskEndTime {
-//                saveTaskDataToCoreData(taskStartTime: taskStartTime, taskEndTime: taskEndTime)
-//            }
-            // TODO: 최고점수 저장 로직 수정 필요
-//            if totalScore > bestScore { bestScore = totalScore }
-            
-            isFinished = true
-        }
-    }
-    
-    func stopTask() {
-        stopAudio()
-        
-        threeCountdownTimer?.invalidate()
-        taskCountdownTimer?.invalidate()
-        resultTimer?.invalidate()
-        
-        threeCountdownTimer = nil
-        taskCountdownTimer = nil
-        resultTimer = nil
-    }
-    
-    func checkCorrectWrong(question: Question, userAnswer: ASPair) -> Bool {
-
+    private func checkCorrectWrong(question: Question, userAnswer: ASPair) -> Bool {
         if question.type == .color {
             return question.colorWord == userAnswer.color
             
@@ -268,18 +209,67 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         }
     }
     
-    func calculateScore(isCorrect: Bool, trialStartTime: Date, trialEndTime: Date) -> Int {
+    // 다음 단계 진행
+    private func goToNextTrialOrEndTrial() {
+        taskCountdown = 0
+        
+        if qIndex < extractedQuestions.count - 1 {
+            qIndex += 1
+            
+            choices = allocateChoices(question: extractedQuestions[qIndex])
+            setTypeAndSpeakWord()
+            
+        } else {
+            stopTask()
+            
+            taskEndTime = Date()
+//            if let taskStartTime = taskStartTime, let taskEndTime = taskEndTime {
+//                saveTaskDataToCoreData(taskStartTime: taskStartTime, taskEndTime: taskEndTime)
+//            }
+            // TODO: 최고점수 저장 로직 수정 필요
+//            if totalScore > bestScore { bestScore = totalScore }
+
+            isFinished = true
+        }
+    }
+    
+    // MARK: - 일시정지 및 재시작
+    private func stopTask() {
+        stopAudio()
+        
+        threeCountdownTimer?.invalidate()
+        taskCountdownTimer?.invalidate()
+        resultTimer?.invalidate()
+        
+        threeCountdownTimer = nil
+        taskCountdownTimer = nil
+        resultTimer = nil
+    }
+    
+    // MARK: - 점수 계산
+    private func calculateScore(isCorrect: Bool, trialStartTime: Date, trialEndTime: Date) -> Int {
         if isCorrect {
             return 1000 - Int(trialEndTime.timeIntervalSince(trialStartTime) * 100)
-            
         } else {
             return 0
         }
     }
     
-    // MARK: - Audio Player
+    // MARK: - AudioPlayer
     
-    func playAudioForThreeCountdown() {
+    // 소리가 끝나면 AVAudio delegate로 호출됨 다음 단계 진행 : 메소드 4번
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        print("finished")
+        if flag, !isShowingThreeCountdown {
+            Task { await MainActor.run { [weak self] in
+                self?.isPlayingAudio = false
+                self?.startTaskCountdown()
+            }}
+        }
+    }
+    
+    // 3초카운트다운 소리 재생 삡삡삡 - 메소드 3번
+    private func playAudioForThreeCountdown() {
         isPlayingAudio = true
         
         do {
@@ -294,11 +284,11 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
             audioPlayer?.play()
             
         } catch {
-            print("[Log] AuditoryStroopTaskViewModel | playAudioForAuditoryStroop Error: \(error.localizedDescription)")
+            print("playAudioForAuditoryStroop Error: \(error.localizedDescription)")
         }
     }
     
-    func playAudioForAuditoryStroop(url: URL) {
+    private func playAudioForAuditoryStroop(url: URL) {
         isPlayingAudio = true
         
         do {
@@ -313,21 +303,19 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
             audioPlayer?.play()
             
         } catch {
-            print("[Log] AuditoryStroopTaskViewModel | playAudioForAuditoryStroop Error: \(error.localizedDescription)")
+            print("playAudioForAuditoryStroop Error: \(error.localizedDescription)")
         }
     }
     
-    func setTypeAndSpeakWord() {
-        print("extractedQuestions[qIndex].type == \(extractedQuestions[qIndex].type)")
-        
-        print("extractedQuestions[qIndex].colorWord.enMp3Url == \(extractedQuestions[qIndex].colorWord.enMp3Url)")
+    // 문제 소리 재생 - 메소드 3번
+    private func setTypeAndSpeakWord() {
         questionType = extractedQuestions[qIndex].type.rawValue
 
         let mp3Url = extractedQuestions[qIndex].colorWord.enMp3Url
         playAudioForAuditoryStroop(url: mp3Url)
     }
     
-    func stopAudio() {
+    private func stopAudio() {
         audioPlayer?.stop()
         audioPlayer = nil
         
