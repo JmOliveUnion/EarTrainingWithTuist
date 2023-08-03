@@ -11,8 +11,8 @@ import AVFoundation
 final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     enum QuestionType: String, CaseIterable {
-        case word = "단어"
-        case color = "색상"
+        case word = "WORD"
+        case color = "COLOR"
     }
     
     struct Question {
@@ -32,7 +32,6 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
     @Published var isFinished: Bool = false
     
     @Published var threeCountdownString: String = ""
-
     @Published var choices: [ASPair] = [
         ASPair(word: .red, color: .red),
         ASPair(word: .green, color: .green),
@@ -41,7 +40,6 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
     private var threeCountdownTimer: Timer?
     private var taskCountdownTimer: Timer?
     private var resultTimer: Timer?
-    private var countdownTimer: Timer?
     private var taskStartTime: Date?
     private var taskEndTime: Date?
     private var trialStartTime: Date?
@@ -59,22 +57,10 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
     private var audioPlayer: AVAudioPlayer?
     
     var auditoryStroopBestScore: Int = 0
-
-    // MARK: - Timer
-    func startTimer() {
-        self.secondsRemaining = 10.0
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
-            self.secondsRemaining -= Double(0.01)
-            if self.secondsRemaining <= 0 {
-                timer.invalidate()
-            }
-        }
-    }
     
     func tapButton(_ asPair: ASPair) {
-        countdownTimer?.invalidate()
-        countdownTimer = nil
-        
+        taskCountdownTimer?.invalidate()
+        taskCountdownTimer = nil
         checkAnswer(userAnswer: asPair)
 
     }
@@ -142,7 +128,7 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
                     
                 } else if self.threeCountdown == 1 {
                     self.threeCountdown -= 1
-                    self.threeCountdownString = "Start!"
+                    self.threeCountdownString = "시작!"
                     
                 } else {
                     self.threeCountdownTimer?.invalidate()
@@ -155,9 +141,11 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        print("finished")
         if flag, !isShowingThreeCountdown {
             Task { await MainActor.run { [weak self] in
                 self?.isPlayingAudio = false
+//                print("audioPlayerDidFinishPlaying is Calling")
                 self?.startTaskCountdown()
             }}
         }
@@ -165,12 +153,13 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
     
     func startTaskCountdown() {
         trialStartTime = Date()
-        
+
         taskCountdownTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] innerTimer in
             guard let self = self else { return }
-            
+//            print("taskCoutdown == \(self.taskCountdown)")
+
             Task { await MainActor.run {
-                if self.taskCountdown < (self.taskCountdownTimeoutSec - 0.01) {
+                if self.taskCountdown < (self.taskCountdownTimeoutSec - 0.1) {
                     self.taskCountdown += 0.01
                     
                 } else {
@@ -267,6 +256,7 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
     }
     
     func checkCorrectWrong(question: Question, userAnswer: ASPair) -> Bool {
+
         if question.type == .color {
             return question.colorWord == userAnswer.color
             
@@ -299,7 +289,7 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
             
             // Play Audio
-//            audioPlayer = try AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "countdown", withExtension: "mp3")!)
+            audioPlayer = try AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "countdown", withExtension: "mp3")!)
             audioPlayer?.delegate = self
             audioPlayer?.play()
             
@@ -328,6 +318,9 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
     }
     
     func setTypeAndSpeakWord() {
+        print("extractedQuestions[qIndex].type == \(extractedQuestions[qIndex].type)")
+        
+        print("extractedQuestions[qIndex].colorWord.enMp3Url == \(extractedQuestions[qIndex].colorWord.enMp3Url)")
         questionType = extractedQuestions[qIndex].type.rawValue
 
         let mp3Url = extractedQuestions[qIndex].colorWord.enMp3Url

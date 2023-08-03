@@ -13,13 +13,17 @@ import  SnapKit
 class AuditoryStroopVC: BaseViewController {
     
     private let vm = AuditoryStroopViewModel()
+    private let correctView = CorrectAnswerView()
+    private let wrongView = WrongAnswerView()
+    private let threeCountdownView = ThreeCountdownView()
+    private var choiceButtonDescription: [ASPair] = []
+
     // MARK: - Properties
     
     private lazy var questionProgressBar: UIView = {
         let test = Double(2) / Double(10)
         let view = UIView()
         view.backgroundColor = .systemBackground
-        
         let progress = UIView()
         progress.backgroundColor = .l_gray100
         
@@ -54,7 +58,7 @@ class AuditoryStroopVC: BaseViewController {
         let progress = UIProgressView(progressViewStyle: .bar)
         progress.trackTintColor = .l_gray500
         progress.progressTintColor = .l_keyBlue200
-        progress.setProgress(1, animated: false)
+        progress.setProgress(0, animated: false)
         progress.layer.cornerRadius = 10
         progress.clipsToBounds = true
         return progress
@@ -75,37 +79,30 @@ class AuditoryStroopVC: BaseViewController {
         label.font = .Roboto_B60
         label.textAlignment = .center
         return label
-        
     }()
     
-    private let typeLabel: UILabel = {
+    private lazy var typeLabel: UILabel = {
       let label = UILabel()
-        label.text = "단어"
+        label.text = ""
         label.font = .Roboto_R48
         label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-       
         return label
     }()
     
     private lazy var typeBlock: UIView = {
         let view = UIView()
-        
         view.addSubview(typeLabel)
         typeLabel.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-       
-        
         view.backgroundColor = .l_gray500
         view.layer.cornerRadius = 25
-        
         return view
-        
     }()
     
-    private lazy var firstChoice: ASChoiceButton = {
+    private let firstChoice: ASChoiceButton = {
         let button = ASChoiceButton(title: "RED", color: .red)
         return button
     }()
@@ -142,6 +139,8 @@ class AuditoryStroopVC: BaseViewController {
         hideNavigationBarLine()
         setUp()
         bind()
+        
+        vm.initiateTask()
     }
     
     // MARK: - View Methods
@@ -201,52 +200,69 @@ class AuditoryStroopVC: BaseViewController {
             $0.height.equalToSuperview().multipliedBy(0.55)
         }
         
-        vm.startTimer()
-        vm.initiateTask()
-        print(vm.$choices)
+        contentView.addSubview(correctView)
+        correctView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        contentView.addSubview(wrongView)
+        wrongView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        contentView.addSubview(threeCountdownView)
+        threeCountdownView.snp.makeConstraints {
+            $0.top.equalTo(view.snp.top)
+            $0.bottom.equalTo(view.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
     }
     
     private func bind() {
         
+        // MARK: - Input
         firstChoice.tapPublisher
             .sink {[weak self] _ in
-//                self?.vm.initiateTask()
-                self?.vm.tapButton((self?.vm.choices[0])!)
+                self?.vm.tapButton((self?.choiceButtonDescription[0])!)
             }
             .store(in: &cancellableBag)
     
         secondChoice.tapPublisher
             .sink {[weak self] _ in
-                self?.vm.tapButton((self?.vm.choices[1])!)
-
+                self?.vm.tapButton((self?.choiceButtonDescription[1])!)
             }
             .store(in: &cancellableBag)
     
         thirdChoice.tapPublisher
             .sink {[weak self] _ in
-                self?.vm.tapButton((self?.vm.choices[2])!)
-
+                self?.vm.tapButton((self?.choiceButtonDescription[2])!)
             }
             .store(in: &cancellableBag)
     
         fourthChoice.tapPublisher
             .sink {[weak self] _ in
-                self?.vm.tapButton((self?.vm.choices[3])!)
+                self?.vm.tapButton((self?.choiceButtonDescription[3])!)
             }
             .store(in: &cancellableBag)
         
-        vm.$secondsRemaining
+        // MARK: - OutPut
+        vm.$taskCountdown
             .sink { [weak self] level in
-                self?.progressView.setProgress(Float(level) * 0.1 - 0.1, animated: true)
-                self?.countdownLabel.text = "\(Int(level))"
+                self?.progressView.setProgress(1 - Float((level / 10)), animated: false)
+                self?.countdownLabel.text = "\(10 - Int(level + 0.1))"
+            }
+            .store(in: &cancellableBag)
+        
+        vm.$questionType
+            .sink {[weak self] text in
+                self?.typeLabel.text = text
             }
             .store(in: &cancellableBag)
         
         vm.$choices
             .sink { [weak self] _ in
-                print("\(self!.vm.questionType)")
-                self?.typeLabel.text = "\(self!.vm.questionType)"
-                
+                self?.choiceButtonDescription = self!.vm.choices
+
                 self?.firstChoice.setTitle(self?.vm.choices[0].word.rawValue, for: .normal)
                 self?.firstChoice.setTitleColor((self?.vm.choices[0].color.color)!, for: .normal)
                 
@@ -258,6 +274,38 @@ class AuditoryStroopVC: BaseViewController {
                 
                 self?.fourthChoice.setTitle(self?.vm.choices[3].word.rawValue, for: .normal)
                 self?.fourthChoice.setTitleColor((self?.vm.choices[3].color.color)!, for: .normal)
+            }
+            .store(in: &cancellableBag)
+        
+        // MARK: - SubViews
+        vm.$isShowingResult
+            .sink {[weak self] isOn in
+                if isOn {
+                    if self!.vm.isCorrect {
+                        self?.correctView.isHidden = false
+                    } else {
+                        self?.wrongView.isHidden = false
+                    }
+                } else {
+                    self?.correctView.isHidden = true
+                    self?.wrongView.isHidden = true
+                }
+            }
+            .store(in: &cancellableBag)
+        
+        vm.$isShowingThreeCountdown
+            .sink { [weak self] isOn in
+                if isOn {
+                    self?.threeCountdownView.isHidden = false
+                } else {
+                    self?.threeCountdownView.isHidden = true
+                }
+            }
+            .store(in: &cancellableBag)
+        
+        vm.$threeCountdownString
+            .sink { [weak self] text in
+                self?.threeCountdownView.update(text: text)
             }
             .store(in: &cancellableBag)
     }

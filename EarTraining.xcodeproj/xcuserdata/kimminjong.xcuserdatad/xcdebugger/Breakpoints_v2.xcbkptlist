@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EFE2B8AD-098E-4392-A342-9F9CDF2CB781"
-            shouldBeEnabled = "Yes"
+            uuid = "CAE7467C-F45E-4247-A0E5-9CFF366229D5"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EarTraining/Presentation/AuditoryStroop/AuditoryStroopViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "checkAnswer(userAnswer:)"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "goToNextTrialOrEndTrial()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
