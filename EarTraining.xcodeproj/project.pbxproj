@@ -10,6 +10,7 @@
 		580B86392A64C9170078D0CE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 580B86382A64C9170078D0CE /* .swiftlint.yml */; };
 		5822047C2A70AF5A00C49F06 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822047B2A70AF5A00C49F06 /* MainView.swift */; };
 		5822047F2A70F25B00C49F06 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822047E2A70F25B00C49F06 /* GameView.swift */; };
+		582A4D362A7B7594004B3DA0 /* AuditoryStroopDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582A4D352A7B7594004B3DA0 /* AuditoryStroopDoneView.swift */; };
 		582D61342A734747009335EC /* EarTrainingStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D61332A734747009335EC /* EarTrainingStartVC.swift */; };
 		5836EE482A6F69F3003EE040 /* SurveyVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836EE472A6F69F3003EE040 /* SurveyVC3.swift */; };
 		5836EE4A2A6F6CDC003EE040 /* SurveyVC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836EE492A6F6CDC003EE040 /* SurveyVC4.swift */; };
@@ -93,6 +94,7 @@
 		580B86382A64C9170078D0CE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5822047B2A70AF5A00C49F06 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5822047E2A70F25B00C49F06 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		582A4D352A7B7594004B3DA0 /* AuditoryStroopDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditoryStroopDoneView.swift; sourceTree = "<group>"; };
 		582D61332A734747009335EC /* EarTrainingStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarTrainingStartVC.swift; sourceTree = "<group>"; };
 		5836EE472A6F69F3003EE040 /* SurveyVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyVC3.swift; sourceTree = "<group>"; };
 		5836EE492A6F6CDC003EE040 /* SurveyVC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyVC4.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				58CAF8DE2A7A256E0009E3C5 /* CorrectAnswerView.swift */,
 				58CAF8E02A7A29880009E3C5 /* WrongAnswerView.swift */,
 				58CAF8E52A7A4EEF0009E3C5 /* ThreeCountdownView.swift */,
+				582A4D352A7B7594004B3DA0 /* AuditoryStroopDoneView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				58E6AC002A723CF300EAADFA /* LabelWithPadding.swift in Sources */,
 				58E6AC182A72427600EAADFA /* TermsConditionAgreementVC.swift in Sources */,
 				58E6ABFE2A723CBB00EAADFA /* OliveTextField.swift in Sources */,
+				582A4D362A7B7594004B3DA0 /* AuditoryStroopDoneView.swift in Sources */,
 				58E6AC0A2A723F0600EAADFA /* UIResponder+.swift in Sources */,
 				5884694E2A5E65D7008EC91C /* AppDelegate.swift in Sources */,
 				58F8D0D12A5E85360034DDF9 /* Combine+UITextField.swift in Sources */,

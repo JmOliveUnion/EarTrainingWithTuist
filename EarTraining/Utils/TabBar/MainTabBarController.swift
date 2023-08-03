@@ -34,6 +34,8 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setUp() {
+        navigationController?.navigationBar.isHidden = true
+
         tabBar.tintColor = .blue
         tabBar.unselectedItemTintColor = .lightGray
         

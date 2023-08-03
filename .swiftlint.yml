@@ -9,6 +9,7 @@ disabled_rules:
 - force_try
 - identifier_name
 - line_length
+- function_body_length
 
 excluded:
 - EarTraining/Extension/Combine/Combine+UIControl.swift

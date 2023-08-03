@@ -11,18 +11,17 @@ class SplashVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         goToMain()
+
     }
+
     private func goToMain() {
-        let vc = MainTabBarController.instance
-        let nav = UINavigationController(rootViewController: vc)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let vc = MainTabBarController.instance
+            let nav = UINavigationController(rootViewController: vc)
 
-        changeRootViewController(to: nav)
-
+            self.changeRootViewController(to: nav)
+        }
 //        let vc = TutorialVC1()
 //        let nav = UINavigationController(rootViewController: vc)
 //        changeRootViewController(to: nav)

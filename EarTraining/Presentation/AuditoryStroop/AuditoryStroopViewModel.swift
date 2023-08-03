@@ -11,8 +11,8 @@ import AVFoundation
 final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     enum QuestionType: String, CaseIterable {
-        case word = "WORD"
-        case color = "COLOR"
+        case word = "단어"
+        case color = "색깔"
     }
     
     struct Question {
@@ -320,5 +320,39 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         audioPlayer = nil
         
         isPlayingAudio = false
+    }
+    
+    func retryTask() {
+        qIndex = 0
+        totalScore = 0
+        taskCountdown = 0.0
+        threeCountdownString = ""
+        questionType = ""
+        choices = [
+            ASPair(word: .red, color: .red),
+            ASPair(word: .green, color: .green),
+            ASPair(word: .blue, color: .blue),
+            ASPair(word: .yellow, color: .yellow)]
+        
+        threeCountdown = 3
+        threeCountdownTimer?.invalidate()
+        taskCountdownTimer?.invalidate()
+        resultTimer?.invalidate()
+        threeCountdownTimer = nil
+        taskCountdownTimer = nil
+        resultTimer = nil
+        taskStartTime = nil
+        taskEndTime = nil
+        trialStartTime = nil
+        trialEndTime = nil
+        extractedQuestions = []
+        
+        isShowingThreeCountdown = true
+        isPlayingAudio = true
+        isCorrect = false
+        isShowingResult = false
+        isFinished = false
+        
+        initiateTask()
     }
 }

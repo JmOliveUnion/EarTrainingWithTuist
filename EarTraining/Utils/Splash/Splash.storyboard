@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,18 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MiMiTraining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10B-8Y-HtO">
-                                <rect key="frame" x="148" y="428" width="97" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="t2y-Vp-NAg">
+                                <rect key="frame" x="130.66666666666666" y="356.66666666666669" width="131.99999999999997" height="164.00000000000006"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="10B-8Y-HtO" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="BYA-QY-4N8"/>
-                            <constraint firstItem="10B-8Y-HtO" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="zsb-td-Ohv"/>
+                            <constraint firstItem="t2y-Vp-NAg" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="9Ox-iF-1zn"/>
+                            <constraint firstItem="t2y-Vp-NAg" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="E65-3f-rCp"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,8 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="Splash" width="132" height="164"/>
     </resources>
 </document>
