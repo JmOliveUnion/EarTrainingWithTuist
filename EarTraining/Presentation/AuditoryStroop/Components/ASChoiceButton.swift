@@ -24,19 +24,13 @@ class ASChoiceButton: UIButton {
 
     private func setUp(color: UIColor) {
         self.setTitleColor(color, for: .normal)
-        self.setBackgroundColor(.systemBackground, for: .normal)
         self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
-        self.layer.shadowOffset =  CGSize(width: 2.0, height: 2.0)
+        self.layer.cornerRadius = 20
+        self.backgroundColor = .systemBackground
         self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOpacity = 0.4
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize.zero
         self.layer.shadowRadius = 6
-
         self.translatesAutoresizingMaskIntoConstraints = false
-//        self.clipsToBounds = false
-        self.layer.cornerRadius = 30
-
-        self.layer.masksToBounds = false
-
     }
-
 }

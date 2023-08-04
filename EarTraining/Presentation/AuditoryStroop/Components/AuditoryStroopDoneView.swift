@@ -37,7 +37,7 @@ final class AuditoryStroopDoneView: UIView {
         return label
     }()
     
-    private let myScore: UILabel = {
+    let myScore: UILabel = {
         let label = UILabel()
         label.font = .Roboto_B32
         label.textColor = .l_gray700
@@ -114,7 +114,7 @@ final class AuditoryStroopDoneView: UIView {
         self.addSubview(buttonStackView)
         buttonStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.bottom.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview().offset(-50)
             $0.height.equalTo(60)
         }
     }

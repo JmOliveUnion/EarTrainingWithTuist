@@ -14,7 +14,7 @@ final class MainView: UIView {
     
     // MARK: - Properties
     
-    let dailyGameView = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 390)
+    let dailyGameView = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 390)
     let firstGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 200)
     let secondGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 300)
     let thirdGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 100)
@@ -43,7 +43,7 @@ final class MainView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "today_training_title".localized
+        label.text = "오늘의 트레이닝".localized
         label.font = .Roboto_B40
         label.textColor = .systemBackground
         label.numberOfLines = 0
@@ -53,7 +53,7 @@ final class MainView: UIView {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "today_training_description".localized
+        label.text = "매일매일 함께해요!".localized
         label.font = .Roboto_R18
         label.textColor = .systemBackground
         label.numberOfLines = 0
@@ -63,7 +63,7 @@ final class MainView: UIView {
     
     private let allGamesTitle: UILabel = {
        let label = UILabel()
-        label.text = "all_game_title".localized
+        label.text = "모든 게임".localized
         label.font = .Roboto_B24
         return label
     }()

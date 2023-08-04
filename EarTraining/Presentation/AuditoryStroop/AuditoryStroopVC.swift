@@ -144,9 +144,8 @@ final class AuditoryStroopVC: BaseViewController {
     private lazy var choiceStack: UIStackView = {
        let stack = UIStackView(arrangedSubviews: [firstChoice, secondChoice, thirdChoice, fourthChoice])
         stack.axis = .vertical
-        stack.spacing = 20
+        stack.spacing = 15
         stack.distribution = .fillEqually
-        
         return stack
     }()
     
@@ -381,6 +380,12 @@ final class AuditoryStroopVC: BaseViewController {
                     self?.navigationController?.navigationBar.isHidden = isOn
                     self?.finishedView.isHidden = !isOn
                 }
+            }
+            .store(in: &cancellableBag)
+        
+        vm.$totalScore
+            .sink {[weak self] text in
+                self?.finishedView.myScore.text = "\(text)"
             }
             .store(in: &cancellableBag)
     }

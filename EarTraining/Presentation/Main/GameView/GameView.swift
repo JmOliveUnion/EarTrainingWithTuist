@@ -34,7 +34,7 @@ class GameView: UIView {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "game_title1".localized
+        label.text = "소리기억".localized
         label.font = .Roboto_B28
         label.textColor = .label
         label.numberOfLines = 0
@@ -43,18 +43,17 @@ class GameView: UIView {
     
     let playButton: UIButton = {
         let button = UIButton()
-       
-        button.setImage(UIImage(named: Image.homeTabSelected.rawValue), for: .normal)
-        button.setTitle("play_title".localized, for: .normal)
+        button.setImage(UIImage(named: Image.rightArrow.rawValue), for: .normal)
+        button.setTitle("도전하기".localized, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(.l_keyBlue, for: .normal)
-        
         button.semanticContentAttribute = .forceRightToLeft
         return button
     }()
     
     private let scoreTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "high_score".localized
+        label.text = "최고점수".localized
         label.font = .Roboto_R16
         label.textColor = .l_gray100
         return label
