@@ -50,13 +50,13 @@ final class MainTabBarController: UITabBarController {
     
     private func setupTabIcon() {
         mainVC.tabBarItem = UITabBarItem(
-            title: "Training".localized,
+            title: "트레이닝".localized,
             image: UIImage(named: Image.homeTab.rawValue),
             selectedImage: UIImage(named: Image.homeTabSelected.rawValue)
         )
         
         settingVC.tabBarItem = UITabBarItem(
-            title: "Profile".localized,
+            title: "프로필".localized,
             image: UIImage(named: Image.settingTab.rawValue),
             selectedImage: UIImage(named: Image.settingTabSelected.rawValue)
         )

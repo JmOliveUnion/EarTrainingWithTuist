@@ -14,10 +14,10 @@ final class MainView: UIView {
     
     // MARK: - Properties
     
-    let dailyGameView = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 390)
-    let firstGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 200)
-    let secondGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 300)
-    let thirdGame = GameView(day: .mon, image: Image.homeTabSelected.rawValue, score: 100)
+    let dailyGameView = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 390, isLocked: false)
+    let firstGame = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 200)
+    let secondGame = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 300)
+    let thirdGame = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 100)
 
     let scrollView: UIScrollView = {
       let scrollView = UIScrollView()
@@ -44,7 +44,7 @@ final class MainView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "오늘의 트레이닝".localized
-        label.font = .Roboto_B40
+        label.font = .Roboto_B32
         label.textColor = .systemBackground
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -54,7 +54,7 @@ final class MainView: UIView {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "매일매일 함께해요!".localized
-        label.font = .Roboto_R18
+        label.font = .Roboto_R16
         label.textColor = .systemBackground
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -109,7 +109,7 @@ final class MainView: UIView {
         topBlueView.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(5)
         }
         
         topBlueView.addSubview(dailyGameView)
@@ -128,7 +128,7 @@ final class MainView: UIView {
         
         contentView.addSubview(firstGame)
         firstGame.snp.makeConstraints {
-            $0.top.equalTo(allGamesTitle.snp.bottom).offset(20)
+            $0.top.equalTo(allGamesTitle.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(150)
         }

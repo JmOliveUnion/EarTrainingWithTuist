@@ -36,20 +36,16 @@ class MainVC: BaseViewController {
         }
         
         mainView.dailyGameView.playButton.tapPublisher
-            .sink { _ in
-                print("Tapped")
+            .sink {[weak self] _ in
+                let vc = EarTrainingStartVC()
+                vc.modalPresentationStyle = .fullScreen
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
             .store(in: &cancellableBag)
         
         mainView.firstGame.playButton.tapPublisher
             .sink {[weak self] _ in
                 print("Tapped")
-                let vc = EarTrainingStartVC()
-//                let nav = UINavigationController(rootViewController: vc)
-                vc.modalPresentationStyle = .fullScreen
-//                self?.present(vc, animated: true)
-                self?.navigationController?.pushViewController(vc, animated: true)
-                
             }
             .store(in: &cancellableBag)
         
