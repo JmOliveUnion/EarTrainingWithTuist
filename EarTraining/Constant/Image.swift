@@ -14,7 +14,9 @@ enum Image: String {
     case homeTabSelected = "HomeTabSelected"
     case settingTab = "SettingTab"
     case settingTabSelected = "SettingTabSelected"
-    
+    case unchecked = "unchecked"
+    case checked = "checked"
+
     // MARK: - 게임 뷰
     
     case gameImage1 = "milk"

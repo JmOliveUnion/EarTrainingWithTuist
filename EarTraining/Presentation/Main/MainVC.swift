@@ -27,7 +27,6 @@ class MainVC: BaseViewController {
         super.viewDidLoad()
         bind()
         hideNavigationBarLine()
-        
     }
     
     private func bind() {
@@ -50,5 +49,4 @@ class MainVC: BaseViewController {
             .store(in: &cancellableBag)
         
     }
-   
 }

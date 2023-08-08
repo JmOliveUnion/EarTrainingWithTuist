@@ -14,6 +14,7 @@ final class MainView: UIView {
     
     // MARK: - Properties
     
+    private lazy var headerView = WeekSequenveView(day: .tue)
     let dailyGameView = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 390, isLocked: false)
     let firstGame = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 200)
     let secondGame = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 300)
@@ -92,7 +93,7 @@ final class MainView: UIView {
             $0.top.equalToSuperview()
             $0.centerX.bottom.equalToSuperview()
         }
-        
+    
         contentView.addSubview(topBlueView)
         topBlueView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
@@ -100,10 +101,18 @@ final class MainView: UIView {
             $0.top.equalTo(contentView.snp.top).offset(-100)
         }
         
+        topBlueView.addSubview(headerView)
+        headerView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().offset(130)
+            $0.height.equalTo(95)
+            $0.width.equalTo(8)
+        }
+        
         topBlueView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.top.greaterThanOrEqualToSuperview().offset(150)
+            $0.top.equalTo(headerView.snp.bottom).offset(30)
         }
         
         topBlueView.addSubview(descriptionLabel)
