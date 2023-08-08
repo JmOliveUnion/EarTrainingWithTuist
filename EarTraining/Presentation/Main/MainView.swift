@@ -14,7 +14,7 @@ final class MainView: UIView {
     
     // MARK: - Properties
     
-    private lazy var headerView = WeekSequenveView(day: .tue)
+    private lazy var headerView = WeekSequenveView()
     let dailyGameView = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 390, isLocked: false)
     let firstGame = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 200)
     let secondGame = GameView(day: .mon, image: Image.gameImage1.rawValue, score: 300)

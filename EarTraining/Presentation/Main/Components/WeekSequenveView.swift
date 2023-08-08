@@ -21,12 +21,11 @@ final class WeekSequenveView: UIView {
         case sun = "일"
     }
     
-    private let day: Day
+    private var day: Day = .mon
     
-    init(day: Day) {
-        self.day = day
-        super.init(frame: .zero)
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        getDate()
         setup()
     }
     
@@ -90,5 +89,13 @@ final class WeekSequenveView: UIView {
         view.backgroundColor = self.day == day ? .white.withAlphaComponent(0.3) : .clear
         view.layer.cornerRadius = 15
         return view
+    }
+    
+    private func getDate() {
+        let date = Date()
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: date)
+        let weekdaySymbol = calendar.shortWeekdaySymbols[weekday - 1]
+        self.day = Day(rawValue: weekdaySymbol) ?? .mon
     }
 }
