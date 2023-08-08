@@ -76,11 +76,11 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 0
         }
-        return 7
+        return 20
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,31 +88,9 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         case 0:
             return 1
         case 1:
-            return 1
-        case 2:
             return 3
-        case 3:
-            return 1
         default:
             return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        switch section {
-        case 0:
-            return view.tintColor = .white
-        default:
-            return view.tintColor = .black
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        switch section {
-        case 0:
-            return view.tintColor = .yellow
-        default:
-            return view.tintColor = .red
         }
     }
 
@@ -124,18 +102,18 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
             cell.configure(profileImage: Image.homeTabSelected.rawValue, name: "Minjong", email: "dev@oliveunion.com")
             
             return cell
+//        case 1:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementTableViewCell", for: indexPath) as! AchivementTableViewCell
+//            cell.configure()
+//            return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementTableViewCell", for: indexPath) as! AchivementTableViewCell
-            cell.configure()
-            return cell
-        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "OthersTableViewCell", for: indexPath) as! OthersTableViewCell
             cell.configure(row: indexPath.row)
             return cell
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AdvertisingTableViewCell", for: indexPath) as! AdvertisingTableViewCell
-            cell.configure()
-            return cell
+//        case 3:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "AdvertisingTableViewCell", for: indexPath) as! AdvertisingTableViewCell
+//            cell.configure()
+//            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath)
             cell.textLabel?.text = "Hello \(indexPath.section) row : \(indexPath.row)"
@@ -146,13 +124,9 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 200
+            return 570
         case 1:
-            return 300
-        case 2:
-            return 70
-        case 3:
-            return 200
+            return 60
         default:
             return 100
             

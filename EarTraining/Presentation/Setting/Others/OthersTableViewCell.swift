@@ -13,7 +13,7 @@ class OthersTableViewCell: UITableViewCell {
     
     static let identifier = "OthersTableViewCell"
 
-    private let title = ["기타", "알림설정", "이용약관"]
+    private let title = ["알림설정", "이용약관", "개인정보처림방침"]
     
     private let titleLabel: UILabel = {
       let label = UILabel()

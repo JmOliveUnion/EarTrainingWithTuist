@@ -62,6 +62,7 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         taskStartTime = Date()
 
         extractedQuestions = pickAndShuffleQuestions()
+        print("extractedQuestions == \(extractedQuestions)")
         choices = allocateChoices(question: extractedQuestions[qIndex])
         startThreeCountdown()
     }
@@ -89,7 +90,11 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
                 filteredChoices.append(datum)
                 
             } else {
+                print("filteredChoices == \(filteredChoices)")
                 if filteredChoices.count < 4, filteredChoices.contains(where: { element in
+                    print("element == \(element)")
+                    print("datum == \(datum)")
+
                     if question.type == .color {
                         return element.color == datum.color
                     } else {
@@ -100,7 +105,7 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
                 }
             }
         }
-        
+//        print("Filtered Choices = \(filteredChoices)")
         return filteredChoices
     }
     
