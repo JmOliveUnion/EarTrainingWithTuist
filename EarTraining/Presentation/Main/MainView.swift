@@ -104,15 +104,14 @@ final class MainView: UIView {
         topBlueView.addSubview(headerView)
         headerView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.top.equalToSuperview().offset(130)
+            $0.top.equalToSuperview().offset(110)
             $0.height.equalTo(95)
-            $0.width.equalTo(8)
         }
         
         topBlueView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.top.equalTo(headerView.snp.bottom).offset(30)
+            $0.top.greaterThanOrEqualTo(headerView.snp.bottom).offset(40)
         }
         
         topBlueView.addSubview(descriptionLabel)
@@ -126,7 +125,8 @@ final class MainView: UIView {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(150)
-            $0.bottom.greaterThanOrEqualToSuperview().offset(-20)
+            $0.bottom.equalToSuperview().offset(-20)
+           
         }
         
         contentView.addSubview(allGamesTitle)

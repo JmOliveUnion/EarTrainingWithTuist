@@ -53,8 +53,8 @@ class GameView: UIView {
         }
         
         view.snp.makeConstraints {
-            $0.width.equalTo(48)
-            $0.height.equalTo(15)
+            $0.width.equalTo(45)
+            $0.height.equalTo(17)
         }
         
         view.backgroundColor = .l_gray900
@@ -75,8 +75,8 @@ class GameView: UIView {
         }
         
         view.snp.makeConstraints {
-            $0.width.equalTo(48)
-            $0.height.equalTo(15)
+            $0.width.equalTo(45)
+            $0.height.equalTo(17)
         }
         
         view.backgroundColor = .l_gray900
@@ -97,8 +97,8 @@ class GameView: UIView {
         }
         
         view.snp.makeConstraints {
-            $0.width.equalTo(48)
-            $0.height.equalTo(15)
+            $0.width.equalTo(45)
+            $0.height.equalTo(17)
         }
         
         view.backgroundColor = .l_gray900
@@ -108,7 +108,7 @@ class GameView: UIView {
     
     private lazy var subTitleStack: UIStackView = {
       let stack = UIStackView(arrangedSubviews: [subTitleViewFirst, subTitleViewSecond, subTitleViewThird])
-        stack.spacing = 3
+        stack.spacing = 5
         return stack
     }()
     
@@ -196,6 +196,10 @@ class GameView: UIView {
     private func setUp(isLocked: Bool) {
         layer.cornerRadius = 20
         backgroundColor = .systemBackground
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 6
     
         addSubview(imageView)
         imageView.snp.makeConstraints {

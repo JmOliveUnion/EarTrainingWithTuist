@@ -25,7 +25,6 @@ final class WeekSequenveView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        getDate()
         setup()
     }
     
@@ -34,6 +33,8 @@ final class WeekSequenveView: UIView {
     }
     
     private func setup() {
+        getDate()
+
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         
@@ -82,7 +83,7 @@ final class WeekSequenveView: UIView {
         view.addSubview(dateLabel)
         dateLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(image.snp.bottom).offset(5)
+            $0.top.equalTo(image.snp.bottom).offset(7)
         }
         
         todayLabel.isHidden = self.day != day
