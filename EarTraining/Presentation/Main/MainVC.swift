@@ -29,6 +29,11 @@ class MainVC: BaseViewController {
         hideNavigationBarLine()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        HapticManager.instace.impact(type: .medium)
+    }
+    
     private func bind() {
         guard let mainView = view as? MainView else {
             return assertionFailure("MainView is not Exist")

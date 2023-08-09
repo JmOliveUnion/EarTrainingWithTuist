@@ -21,6 +21,8 @@ protocol SocialLoginViewModeOutput {
 protocol SocialLoginViewModeInAndOut: SocialLoginViewModeInput & SocialLoginViewModeOutput { }
 
 final class LoginViewModel: NSObject, SocialLoginViewModeInAndOut {
+    
+    @Published var loginSucess: Bool = false
 
     var loginPublisher = PassthroughSubject<Void, Error>()
     
@@ -43,7 +45,18 @@ extension LoginViewModel: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
         print(credential.user)
+        print(credential.user.description)
+        print(credential.email)
+        
+        let userIdentifierStr: String = credential.user.description
+
+        print(userIdentifierStr)
+        print(String(data: credential.identityToken!, encoding: .utf8) ?? "")
+
+        print("Login Success")
         loginPublisher.send()
+        self.loginSucess = true
+    
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {

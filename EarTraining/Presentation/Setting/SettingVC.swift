@@ -35,7 +35,11 @@ class SettingVC: BaseViewController {
         setUp()
         tableView.dataSource = self
         tableView.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        HapticManager.instace.impact(type: .medium)
     }
     
     private func setUp() {

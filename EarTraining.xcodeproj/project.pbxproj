@@ -124,6 +124,7 @@
 		58A609962A6FC626004B3844 /* AdvertisingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertisingTableViewCell.xib; sourceTree = "<group>"; };
 		58A6099A2A6FC80F004B3844 /* AchivementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivementTableViewCell.swift; sourceTree = "<group>"; };
 		58A6099B2A6FC80F004B3844 /* AchivementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchivementTableViewCell.xib; sourceTree = "<group>"; };
+		58B7289A2A8375E100FFE34D /* EarTraining.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EarTraining.entitlements; sourceTree = "<group>"; };
 		58CAF8C22A78AEC50009E3C5 /* AuditoryStroopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditoryStroopVC.swift; sourceTree = "<group>"; };
 		58CAF8C42A78AF260009E3C5 /* AuditoryStroopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditoryStroopViewModel.swift; sourceTree = "<group>"; };
 		58CAF8CA2A78F80D0009E3C5 /* ASPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPair.swift; sourceTree = "<group>"; };
@@ -251,6 +252,7 @@
 		5884694C2A5E65D7008EC91C /* EarTraining */ = {
 			isa = PBXGroup;
 			children = (
+				58B7289A2A8375E100FFE34D /* EarTraining.entitlements */,
 				58F8D0BE2A5E81470034DDF9 /* Extension */,
 				58F8D0B92A5E7CD30034DDF9 /* Constant */,
 				58F8D0A82A5E6EA20034DDF9 /* Utils */,
@@ -899,6 +901,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EarTraining/EarTraining.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ATA9D86TU9;
@@ -931,6 +934,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EarTraining/EarTraining.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ATA9D86TU9;

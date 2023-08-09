@@ -17,14 +17,8 @@ class SplashVC: BaseViewController {
 
     private func goToMain() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            let vc = MainTabBarController.instance
-            let nav = UINavigationController(rootViewController: vc)
-
-            self.changeRootViewController(to: nav)
+            let vc = LoginVC()
+            self.changeRootViewController(to: vc)
         }
-//        let vc = TutorialVC1()
-//        let nav = UINavigationController(rootViewController: vc)
-//        changeRootViewController(to: nav)
-//
     }
 }
