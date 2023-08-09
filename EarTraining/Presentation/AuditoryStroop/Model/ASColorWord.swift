@@ -23,7 +23,7 @@ enum ASColorWord: String, CaseIterable {
         case .green:
             return .green
         case .yellow:
-            return .yellow
+            return .l_keyYellow100
         default:
             return .clear
         }

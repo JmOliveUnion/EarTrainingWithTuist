@@ -93,6 +93,7 @@ final class WeekSequenveView: UIView {
     }
     
     private func getDate() {
+        let weekArray: [Int] = [1, 2, 3, 4, 5, 6, 7]
         let date = Date()
         let calendar = Calendar.current
         let weekday = calendar.component(.weekday, from: date)

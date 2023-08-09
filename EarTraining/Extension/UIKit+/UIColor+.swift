@@ -49,6 +49,8 @@ extension UIColor {
     static let l_keyBlue_40 = UIColor(r: 174, g: 188, b: 255)
     static let l_keyYellow = UIColor(r: 255, g: 179, b: 0)
     static let l_keyYellow_40 = UIColor(r: 255, g: 227, b: 160)
+    static let l_keyYellow100 = UIColor(r: 255, g: 200, b: 0)
+
     static let l_subRed = UIColor(r: 234, g: 65, b: 24)
     static let l_subBlue = UIColor(r: 0, g: 149, b: 242)
     static let l_subPink = UIColor(r: 255, g: 44, b: 123)
