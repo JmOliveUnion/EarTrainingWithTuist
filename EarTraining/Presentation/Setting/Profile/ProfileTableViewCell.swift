@@ -114,6 +114,7 @@ class ProfileTableViewCell: UITableViewCell {
         emailLabel.font = .Roboto_R14
         emailLabel.textColor = .l_gray100
         setUp()
+        self.selectionStyle = .none
     }
     
     // MARK: - View SetUp

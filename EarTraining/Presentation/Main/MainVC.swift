@@ -41,7 +41,8 @@ class MainVC: BaseViewController {
         
         mainView.dailyGameView.playButton.tapPublisher
             .sink {[weak self] _ in
-                let vc = EarTrainingStartVC()
+                print("Tapped")
+                let vc = AuditoryStroopVC()
                 vc.modalPresentationStyle = .fullScreen
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
@@ -49,7 +50,7 @@ class MainVC: BaseViewController {
         
         mainView.firstGame.playButton.tapPublisher
             .sink {[weak self] _ in
-                print("Tapped")
+//                print("Tapped")
             }
             .store(in: &cancellableBag)
         

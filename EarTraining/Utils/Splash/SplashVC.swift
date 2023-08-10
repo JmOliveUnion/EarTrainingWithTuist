@@ -17,8 +17,15 @@ class SplashVC: BaseViewController {
 
     private func goToMain() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            let vc = LoginVC()
-            self.changeRootViewController(to: vc)
+            
+            if UserDefaults.standard.string(forKey: "AppleLogin") != nil {
+                let vc = MainTabBarController.instance
+                let nav = UINavigationController(rootViewController: vc)
+                self.changeRootViewController(to: nav)
+            } else {
+                let vc = LoginVC()
+                self.changeRootViewController(to: vc)
+            }
         }
     }
 }

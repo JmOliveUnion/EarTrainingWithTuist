@@ -176,7 +176,8 @@ final class LoginVC: BaseViewController {
                 if isOn {
                     print("Tapped")
                     let vc = MainTabBarController.instance
-                    self?.changeRootViewController(to: vc)
+                    let nav = UINavigationController(rootViewController: vc)
+                    self?.changeRootViewController(to: nav)
                 }
             }
             .store(in: &cancellableBag)

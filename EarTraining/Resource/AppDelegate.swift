@@ -7,6 +7,11 @@
 
 import UIKit
 
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+import AuthenticationServices
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,6 +28,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         scrollApperance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.Roboto_R24]
         
         UINavigationBar.appearance().standardAppearance = scrollApperance
+        
+//        FirebaseApp.configure()
+        
+        // MARK: - Apple Login
+        
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+           appleIDProvider.getCredentialState(forUserID: "rlaalswhd200@naver.com") { (credentialState, error) in
+               switch credentialState {
+               case .authorized:
+                   // The Apple ID credential is valid.
+                   print("해당 ID는 연동되어있습니다.")
+               case .revoked:
+                   // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+                   print("해당 ID는 연동되어있지않습니다.")
+               case .notFound:
+                   // The Apple ID credential is either was not found, so show the sign-in UI.
+                   print("해당 ID를 찾을 수 없습니다.")
+               default:
+                   break
+               }
+           }
         
         return true
     }

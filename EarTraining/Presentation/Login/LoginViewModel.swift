@@ -44,16 +44,17 @@ final class LoginViewModel: NSObject, SocialLoginViewModeInAndOut {
 extension LoginViewModel: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+        print(credential)
         print(credential.user)
         print(credential.user.description)
         print(credential.email)
-        
-        let userIdentifierStr: String = credential.user.description
-
-        print(userIdentifierStr)
+        print(credential.fullName)
+        print(credential.fullName?.namePrefix)
         print(String(data: credential.identityToken!, encoding: .utf8) ?? "")
 
         print("Login Success")
+        UserDefaults.standard.set(credential.user, forKey: "AppleLogin")
+        
         loginPublisher.send()
         self.loginSucess = true
     

@@ -25,6 +25,12 @@ class OthersTableViewCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         
         titleLabel.text = title[row]
+        
+        self.selectionStyle = .default
+//        titleLabel.highlightedTextColor = .red
+        if titleLabel.isHighlighted {
+            titleLabel.backgroundColor = .red
+        }
     }
     
     override func layoutSubviews() {

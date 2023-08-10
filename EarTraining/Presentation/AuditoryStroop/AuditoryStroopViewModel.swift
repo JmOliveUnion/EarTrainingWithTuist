@@ -87,7 +87,11 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         let data = asPairData.shuffled()
         for datum in data {
             if filteredChoices.isEmpty {
-                filteredChoices.append(datum)
+                if question.type == .color {
+                    filteredChoices.append(ASPair(word: datum.word, color: question.colorWord))
+                } else {
+                    filteredChoices.append(ASPair(word: question.colorWord, color: datum.color))
+                }
                 
             } else {
                 print("filteredChoices == \(filteredChoices)")
