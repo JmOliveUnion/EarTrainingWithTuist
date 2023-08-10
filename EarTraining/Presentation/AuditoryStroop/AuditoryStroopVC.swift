@@ -18,7 +18,6 @@ final class AuditoryStroopVC: BaseViewController {
     private let threeCountdownView = ThreeCountdownView()
     private let finishedView = AuditoryStroopDoneView()
 
-    private var choiceButtonDescription: [ASPair] = []
     private var quetionType: String = ""
     private var qIndex: Int = 0
 
@@ -249,25 +248,25 @@ final class AuditoryStroopVC: BaseViewController {
         // MARK: - Input
         firstChoice.tapPublisher
             .sink {[weak self] _ in
-                self?.vm.tapButton((self?.choiceButtonDescription[0])!)
+                self?.vm.tapButton((self?.vm.choices[0])!)
             }
             .store(in: &cancellableBag)
 
         secondChoice.tapPublisher
             .sink {[weak self] _ in
-                self?.vm.tapButton((self?.choiceButtonDescription[1])!)
+                self?.vm.tapButton((self?.vm.choices[1])!)
             }
             .store(in: &cancellableBag)
 
         thirdChoice.tapPublisher
             .sink {[weak self] _ in
-                self?.vm.tapButton((self?.choiceButtonDescription[2])!)
+                self?.vm.tapButton((self?.vm.choices[2])!)
             }
             .store(in: &cancellableBag)
     
         fourthChoice.tapPublisher
             .sink {[weak self] _ in
-                self?.vm.tapButton((self?.choiceButtonDescription[3])!)
+                self?.vm.tapButton((self?.vm.choices[3])!)
             }
             .store(in: &cancellableBag)
         
@@ -308,12 +307,6 @@ final class AuditoryStroopVC: BaseViewController {
             }
             .store(in: &cancellableBag)
         
-        vm.$choices
-            .sink { [weak self] _ in
-                self?.choiceButtonDescription = self!.vm.choices
-            }
-            .store(in: &cancellableBag)
-        
         vm.$isPlayingAudio
             .sink {[weak self] isOn in
                 if isOn {
@@ -332,8 +325,8 @@ final class AuditoryStroopVC: BaseViewController {
                     self?.progressView.progressTintColor = .l_keyBlue200
                     [self?.firstChoice, self?.secondChoice, self?.thirdChoice, self?.fourthChoice].enumerated().forEach { (index, button) in
                         button?.isEnabled = true
-                        button?.setTitle(self?.choiceButtonDescription[index].word.rawValue, for: .normal)
-                        button?.setTitleColor(self?.choiceButtonDescription[index].color.color, for: .normal)
+                        button?.setTitle(self?.vm.choices[index].word.rawValue, for: .normal)
+                        button?.setTitleColor(self?.vm.choices[index].color.color, for: .normal)
                     }
                 }
             }

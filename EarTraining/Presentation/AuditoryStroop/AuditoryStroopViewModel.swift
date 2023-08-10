@@ -87,18 +87,9 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
         let data = asPairData.shuffled()
         for datum in data {
             if filteredChoices.isEmpty {
-                if question.type == .color {
-                    filteredChoices.append(ASPair(word: datum.word, color: question.colorWord))
-                } else {
-                    filteredChoices.append(ASPair(word: question.colorWord, color: datum.color))
-                }
-                
+                filteredChoices.append(datum)
             } else {
-                print("filteredChoices == \(filteredChoices)")
                 if filteredChoices.count < 4, filteredChoices.contains(where: { element in
-                    print("element == \(element)")
-                    print("datum == \(datum)")
-
                     if question.type == .color {
                         return element.color == datum.color
                     } else {
@@ -109,7 +100,6 @@ final class AuditoryStroopViewModel: NSObject, ObservableObject, AVAudioPlayerDe
                 }
             }
         }
-//        print("Filtered Choices = \(filteredChoices)")
         return filteredChoices
     }
     
