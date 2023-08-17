@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 class ProfileTableViewCell: UITableViewCell {
     
+    var cancellableBag = Set<AnyCancellable>()
+    
+//    var delegate = SettingVC()
+    var logOutButtonTapped: (() -> Void)?
+
     static let identifier = "ProfileTableViewCell"
     
     @IBOutlet weak var profileTitleLabel: UILabel!
@@ -19,6 +25,7 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var loginProviderImageView: UIImageView!
     
     private let nickNameLabel: UILabel = {
        let label = UILabel()
@@ -113,7 +120,12 @@ class ProfileTableViewCell: UITableViewCell {
         nameLabel.font = .Roboto_B24
         emailLabel.font = .Roboto_R14
         emailLabel.textColor = .l_gray100
+        
+        loginProviderImageView.image = UIImage(named: "mail")
+        loginProviderImageView.contentMode = .scaleAspectFit
+        
         setUp()
+        bind()
         self.selectionStyle = .none
     }
     
@@ -123,7 +135,7 @@ class ProfileTableViewCell: UITableViewCell {
         addSubview(nickNameLabel)
         nickNameLabel.snp.makeConstraints {
             $0.leading.equalTo(profileImageView.snp.leading)
-            $0.top.equalTo(profileImageView.snp.bottom).offset(10)
+            $0.top.equalTo(profileImageView.snp.bottom).offset(20)
         }
         
         addSubview(nickNameTextField)
@@ -167,10 +179,17 @@ class ProfileTableViewCell: UITableViewCell {
             $0.bottom.greaterThanOrEqualToSuperview().offset(-40)
         }
     }
-
+    
+    private func bind() {
+        logoutButton.tapPublisher
+            .sink {[weak self] _ in
+                self?.logOutButtonTapped?()
+            }
+            .store(in: &cancellableBag)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
 }

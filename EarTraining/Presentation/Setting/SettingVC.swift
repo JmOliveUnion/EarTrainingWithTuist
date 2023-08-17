@@ -35,6 +35,9 @@ class SettingVC: BaseViewController {
         setUp()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.separatorColor = .clear
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,14 +67,12 @@ class SettingVC: BaseViewController {
 
 extension SettingVC: UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Header영역 관련
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        if section == 0 {
-            return nil
-        }
-
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20))
-        header.backgroundColor = .secondarySystemBackground
+        header.backgroundColor = .blue
 
         return header
     }
@@ -79,8 +80,11 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
+        } else if section == 1 {
+            return 0
         }
         return 20
+        
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -97,27 +101,39 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
             return 0
         }
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 0))
+        header.backgroundColor = .secondarySystemBackground
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 0
+        }
+        return 20
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
-            cell.configure(profileImage: Image.homeTabSelected.rawValue, name: "Minjong", email: "dev@oliveunion.com")
-            
+            cell.configure(profileImage: "Kevin", name: "최케빈", email: "cbcng@oliveunion.com")
+            cell.logOutButtonTapped = { [weak self] in
+                AlertBuilder(viewController: self)
+                    .addAction(title: "로그아웃", style: .default) {
+                        self?.restartSplachVC()
+                    }
+                    .addAction(title: "취소", style: .cancel)
+                    .show(title: "로그아웃", message: "로그아웃 하시겠습니까?")
+            }
             return cell
-//        case 1:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementTableViewCell", for: indexPath) as! AchivementTableViewCell
-//            cell.configure()
-//            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "OthersTableViewCell", for: indexPath) as! OthersTableViewCell
             cell.configure(row: indexPath.row)
             return cell
-//        case 3:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "AdvertisingTableViewCell", for: indexPath) as! AdvertisingTableViewCell
-//            cell.configure()
-//            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath)
             cell.textLabel?.text = "Hello \(indexPath.section) row : \(indexPath.row)"

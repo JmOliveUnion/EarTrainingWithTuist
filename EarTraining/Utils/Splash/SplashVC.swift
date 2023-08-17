@@ -16,7 +16,7 @@ class SplashVC: BaseViewController {
     }
 
     private func goToMain() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
             if UserDefaults.standard.string(forKey: "AppleLogin") != nil {
                 let vc = MainTabBarController.instance

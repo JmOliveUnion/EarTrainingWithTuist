@@ -53,7 +53,7 @@ extension LoginViewModel: ASAuthorizationControllerDelegate {
         print(String(data: credential.identityToken!, encoding: .utf8) ?? "")
 
         print("Login Success")
-        UserDefaults.standard.set(credential.user, forKey: "AppleLogin")
+        UserDefaults.standard.set(String(data: credential.identityToken!, encoding: .utf8) ?? "", forKey: "AppleLogin")
         
         loginPublisher.send()
         self.loginSucess = true
